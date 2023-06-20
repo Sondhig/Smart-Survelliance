@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="h-[80vh]">
+    <div class="container mx-auto py-8">
+        <div class="w-full max-w-md mx-auto bg-gray-800 rounded p-5">
+        <h1 class="text-3xl font-bold text-white mb-4 text-center">Machine Settings</h1>
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <label class="block text-white font-bold mb-2" for="ip-address">
+                    IP Address
+                </label>
+                <input type="text" name="hst" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ip-address" name="ip-address" type="text" placeholder="192.168.1.100">
+            </div>
+            <div class="mb-4">
+                <label class="block text-white font-bold mb-2" for="ip-address">
+                    Username
+                </label>
+                <input type="text" name="usr" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ip-address" name="ip-address" type="text" placeholder="gurkaran">
+            </div>
+            <div class="mb-4">
+                <label class="block text-white font-bold mb-2" for="ip-address">
+                    Machine Password
+                </label>
+                <input type="text" name="pwd" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ip-address" name="ip-address" type="text" placeholder="gurkaran">
+            </div>
+            <div class="mb-4">
+                <label class="block text-white font-bold mb-2" for="ip-address">
+                    Email
+                </label>
+                <input type="text" name="email" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ip-address" name="ip-address" type="text" placeholder="isla.atiqul@gmail.com">
+            </div>
+            <div class="mb-4">
+                <label class="block text-white font-bold mb-2" for="ip-address">
+                    Email password
+                </label>
+                <input type="text" name="email_pwd" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ip-address" name="ip-address" type="text" placeholder="******">
+            </div>
+    
+            <div class="flex justify-center">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                Save Settings
+            </button>
+            </div>
+        </form>
+        </div>
+    </div>
+    <div class="h-16"></div>
+</div>
+{% endblock %}

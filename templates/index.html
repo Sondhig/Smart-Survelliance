@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<style>
+
+body {
+  font-family: 'Prompt', sans-serif;
+  font-size: 18px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Quicksand", sans-serif;
+	font-weight: 1000;
+}
+
+</style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SMART|C</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-W..."/>
+  </head>
+
+  <body class="max-h-screen">
+    <div class="bg-gradient-to-b from-[black] to-[#1b1d20] text-white">
+      <div id="navbar">
+        <!-- <h1 class="text-sm pt-1 pl-2 text-gray-500">// ElecEng 40I6 - Group 24 - Capstone // Atiqul // Gurkaran // Nina // Deepjoy</h1> -->
+        <nav class="bg-gray-900">
+          <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+              <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
+                <!-- Mobile menu button -->
+                <button type="button" class="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:bg-gray-800 transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false">
+                  <svg class="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+                  <svg class="hidden h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="flex-1 flex items-center justify-center md:items-stretch md:justify-start">
+                <div class="flex-shrink-0">
+                  <a href="#" class="text-white font-bold uppercase tracking-widest">SMART|C</a>
+                </div>
+                <div class="hidden md:block md:ml-6">
+                  <div class="flex">
+                    <a href="{{ url_for('index') }}" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
+                      <span class="mr-2">
+                        <i class="fas fa-video"></i>
+                      </span>
+                      Live Feed
+                    </a>
+                    <a href="{{ url_for('settings') }}" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
+                      <span class="mr-2">
+                        <i class="fas fa-cog"></i>
+                      </span>
+                      Settings
+                    </a>
+                    <a href="{{ url_for('add') }}" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
+                      <span class="mr-2">
+                        <i class="fas fa-plus"></i>
+                      </span>
+                      Add
+                    </a>
+                    <a href="{{ url_for('train') }}" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
+                      <span class="mr-2">
+                        <i class="fas fa-graduation-cap"></i>
+                      </span>
+                      Train
+                    </a>
+                    <a href="{{ url_for('history') }}" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
+                      <span class="mr-2">
+                        <i class="fas fa-history"></i>
+                      </span>
+                      History
+                    </a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="">
+        {% block content %}
+        
+        {% endblock %} 
+      </div>
+      <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+          <div class="text-center md:text-left mb-4 md:mb-0">
+            <h4 class="text-lg font-semibold">ElecEng 40I6 - Group 24 - Capstone</h4>
+            <p class="text-gray-400 text-sm">A project by:</p>
+          </div>
+          <div class="flex flex-col md:flex-row gap-4">
+            <div>
+              <p class="text-sm">Atiqul</p>
+              <p class="text-xs text-gray-400">islama15 - 400196226</p>
+            </div>
+            <div>
+              <p class="text-sm">Gurkaran</p>
+              <p class="text-xs text-gray-400">sondhg1 - 400193807</p>
+            </div>
+            <div>
+              <p class="text-sm">Nina</p>
+              <p class="text-xs text-gray-400">zhangd82 - 400183355</p>
+            </div>
+            <div>
+              <p class="text-sm">Deepjoy</p>
+              <p class="text-xs text-gray-400">royd10 - 400193974</p>
+            </div>
+          </div>
+          <div class="text-center md:text-right mt-4 md:mt-0">
+            <a href="https://github.com/Atiqul-Isla/smart-video-system" class="text-green-500 hover:text-green-600" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div>
+        </div>
+      </footer>      
+    </div>
+    
+    
+  </body>
+
+
+</html>
